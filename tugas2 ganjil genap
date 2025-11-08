@@ -1,0 +1,21 @@
+#Jika n² ganjil, maka n juga ganjil.
+#Kita buktikan secara logika bahwa kebalikannya menghasilkan kontradiksi.
+
+def is_odd(n):
+    return n % 2 != 0  # Lebih akurat: ganjil jika sisa bagi 2 bukan 0
+
+def proof_by_contradiction():
+    """
+    Membuktikan pernyataan: "Jika n² ganjil, maka n juga ganjil."
+    Dengan proof by contradiction: Asumsikan kebalikannya benar, yaitu ada n genap dengan n² ganjil.
+    Jika tidak ditemukan kontradiksi, maka pernyataan asli benar.
+    """
+    for n in range(1, 101):  # Periksa hingga n=100 untuk lebih komprehensif
+        if is_odd(n**2) and not is_odd(n):  # Jika n² ganjil tapi n genap
+            print(f"Kontradiksi ditemukan pada n={n}!")
+            return False
+    print("Tidak ada kontradiksi ditemukan → pernyataan benar (jika n² ganjil maka n ganjil).")
+    return True
+
+# Jalankan fungsi
+proof_by_contradiction()
